@@ -1,0 +1,23 @@
+Phần 1: Báo cáo phân tích kiến trúc đa Profile
+1. Nguyên nhân "văng phiên đăng nhập":
+Dùng chung 1 Profile Chrome 
+-> Lưu chung thư mục User Data Directory.
+Khi thực tập sinh đăng nhập tài khoản cá nhân, cookie/session bị ghi đè hoặc xung đột, khiến hệ thống CarePulse tự động hủy phiên làm việc cũ để bảo mật, gây văng đăng xuất cho bác sĩ.
+2. Mô hình 3 Profile chuyên dụng:
+Work (Bác sĩ trực chính): Dùng cho hệ thống CarePulse & y tế | Màu: Xanh y tế | Độc lập: Cookies, History, Bookmarks, Extensions.
+Personal (Điều dưỡng/Hành chính): Dùng cho tác vụ hành chính, email | Màu: Xanh ngọc/Xám | Độc lập: Cookies, History, Bookmarks, Extensions.
+Sandbox/Test (Thực tập sinh/PTIT): Dùng học tập, GitHub | Màu: Cam cảnh báo | Độc lập: Cô lập hoàn toàn, không lưu thông tin nhạy cảm.
+Phần 2: Thiết kế hệ thống Bookmark & Quy trình an toàn
+3. Cây thư mục Bookmark chuẩn (Ctrl + Shift + O):
+ 01_CarePulse_Clinic: Quản lý CarePulse, Cổng BHYT, Hồ sơ sức khỏe điện tử.
+ 02_Pharma_Portal: Dược thư Quốc gia, Cổng tra cứu giá thuốc, Danh mục thuốc đấu thầu.
+ 03_Medical_Tools: Google Dịch, Tra cứu xét nghiệm, Quy đổi liều lượng thuốc.
+4. Mẹo Favicon-Only:
+Cách làm: Chuột phải bookmark 
+-> Chỉnh sửa 
+-> Xóa trống ô Tên (Name), giữ lại URL 
+-> Lưu.
+Hiệu quả: Chỉ hiển thị icon, tiết kiệm diện tích gấp 3 lần, áp dụng cho CarePulse, Cổng BHYT, Dược thư, Google Dịch.
+5. Xử lý bẫy an ninh & Cloud Sync:
+Guest Profile (Khách): Tạo phiên tạm thời, cô lập dữ liệu và tự động xóa sạch toàn bộ lịch sử, cookies khi đóng cửa sổ (an toàn tuyệt đối hơn Incognito).
+Cảnh báo Cloud Sync: Tuyệt đối KHÔNG bật đồng bộ tài khoản cá nhân để tránh làm rò rỉ mật khẩu và dữ liệu bệnh nhân lên đám mây.
